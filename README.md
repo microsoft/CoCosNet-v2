@@ -15,6 +15,7 @@ First please install dependencies for the experiment:
 pip install -r requirements.txt
 ````
 We recommend to install Pytorch version after `Pytorch 1.6.0` since we made use of [automatic mixed precision](https://pytorch.org/docs/stable/amp.html) for accelerating. (we used `Pytorch 1.7.0` in our experiments)<br>
+
 ## Prepare the dataset
 First download the Deepfashion dataset (high resolution version) from [this link](https://drive.google.com/file/d/1bByKH1ciLXY70Bp8le_AVnjk-Hd4pe_i/view?usp=sharing). Note the file name is `img_highres.zip`. Unzip the file and rename it as `img`.<br>
 If the password is necessary, please contact [this link](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html) to access the dataset.<br>
@@ -41,6 +42,7 @@ DeepfashionHD
 │       │   ...
 
 ```
+
 ## Inference Using Pretrained Model
 The inference results are saved in the folder `checkpoints/deepfashionHD/test`. Download the pretrained model from [this link](https://drive.google.com/file/d/1ehkrKlf5s1gfpDNXO6AC9SIZMtqs5L3N/view?usp=sharing).<br> 
 Move the models below the folder `checkpoints/deepfashionHD`. Then run the following command. 
@@ -48,6 +50,7 @@ Move the models below the folder `checkpoints/deepfashionHD`. Then run the follo
 python test.py --name deepfashionHD --dataset_mode deepfashionHD --dataroot dataset/deepfashionHD --PONO --PONO_C --no_flip --batchSize 8 --gpu_ids 0 --netCorr NoVGGHPM --nThreads 16 --nef 32 --amp --display_winsize 512 --iteration_count 5 --load_size 512 --crop_size 512
 ````
 The inference results are saved in the folder `checkpoints/deepfashionHD/test`.<br>
+
 ## Training from scratch
 Make sure you have prepared the DeepfashionHD dataset as the instruction.<br>
 Download the **pretrained VGG model** from [this link](https://drive.google.com/file/d/1D-z73DOt63BrPTgIxffN6Q4_L9qma9y8/view?usp=sharing), move it to `vgg/` folder. We use this model to calculate training loss.<br>
@@ -68,8 +71,9 @@ If you use this code for your research, please cite our papers.
   year={2021}
 }
 ```
+
 ## Acknowledgments
-*This code borrows heavily from [CocosNet](https://github.com/microsoft/CoCosNet).
+*This code borrows heavily from [CocosNet](https://github.com/microsoft/CoCosNet) and [DeepPruner](https://github.com/uber-research/DeepPruner).
 We also thank [SPADE](https://github.com/NVlabs/SPADE) and [RAFT](https://github.com/princeton-vl/RAFT).*
 
 
