@@ -4,18 +4,15 @@
 **CoCosNet v2: Full-Resolution Correspondence Learning for Image Translation**<br>
 **CVPR 2021, oral presentation**<br>
 [Xingran Zhou](http://xingranzh.github.io/), [Bo Zhang](https://www.microsoft.com/en-us/research/people/zhanbo/), [Ting Zhang](https://www.microsoft.com/en-us/research/people/tinzhan/), [Pan Zhang](https://panzhang0212.github.io/), [Jianmin Bao](https://jianminbao.github.io/), [Dong Chen](https://www.microsoft.com/en-us/research/people/doch/), [Zhongfei Zhang](https://www.cs.binghamton.edu/~zhongfei/), [Fang Wen](https://www.microsoft.com/en-us/research/people/fangwen/)<br>
-### [paper](https://arxiv.org/pdf/2012.02047.pdf)  | [slides](https://github.com/xingranzh/CocosNet-v2/blob/master/slides/cocosnet_v2_slides.pdf)
-
+### [Paper](https://arxiv.org/pdf/2012.02047.pdf)  | [Slides](https://github.com/microsoft/CoCosNet-v2/blob/main/slides/cocosnet_v2_slides.pdf)<br>
 ## Abstract
 > We present the full-resolution correspondence learning for cross-domain images, which aids image translation. We adopt a hierarchical strategy that uses the correspondence from coarse level to guide the fine levels. At each hierarchy, the correspondence can be efficiently computed via PatchMatch that iteratively leverages the matchings from the neighborhood. Within each PatchMatch iteration, the ConvGRU module is employed to refine the current correspondence considering not only the matchings of larger context but also the historic estimates. The proposed CoCosNet v2, a GRU-assisted PatchMatch approach, is fully differentiable and highly efficient. When jointly trained with image translation, full-resolution semantic correspondence can be established in an unsupervised manner, which in turn facilitates the exemplar-based image translation. Experiments on diverse translation tasks show that CoCosNet v2 performs considerably better than state-of-the-art literature on producing high-resolution images.
-
 ## Installation
 First please install dependencies for the experiment:
 ```bash
 pip install -r requirements.txt
 ````
 We recommend to install Pytorch version after `Pytorch 1.6.0` since we made use of [automatic mixed precision](https://pytorch.org/docs/stable/amp.html) for accelerating. (we used `Pytorch 1.7.0` in our experiments)<br>
-
 ## Prepare the dataset
 First download the Deepfashion dataset (high resolution version) from [this link](https://drive.google.com/file/d/1bByKH1ciLXY70Bp8le_AVnjk-Hd4pe_i/view?usp=sharing). Note the file name is `img_highres.zip`. Unzip the file and rename it as `img`.<br>
 If the password is necessary, please contact [this link](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html) to access the dataset.<br>
@@ -42,7 +39,6 @@ DeepfashionHD
 │       │   ...
 
 ```
-
 ## Inference Using Pretrained Model
 The inference results are saved in the folder `checkpoints/deepfashionHD/test`. Download the pretrained model from [this link](https://drive.google.com/file/d/1ehkrKlf5s1gfpDNXO6AC9SIZMtqs5L3N/view?usp=sharing).<br> 
 Move the models below the folder `checkpoints/deepfashionHD`. Then run the following command. 
@@ -50,7 +46,6 @@ Move the models below the folder `checkpoints/deepfashionHD`. Then run the follo
 python test.py --name deepfashionHD --dataset_mode deepfashionHD --dataroot dataset/deepfashionHD --PONO --PONO_C --no_flip --batchSize 8 --gpu_ids 0 --netCorr NoVGGHPM --nThreads 16 --nef 32 --amp --display_winsize 512 --iteration_count 5 --load_size 512 --crop_size 512
 ````
 The inference results are saved in the folder `checkpoints/deepfashionHD/test`.<br>
-
 ## Training from scratch
 Make sure you have prepared the DeepfashionHD dataset as the instruction.<br>
 Download the **pretrained VGG model** from [this link](https://drive.google.com/file/d/1D-z73DOt63BrPTgIxffN6Q4_L9qma9y8/view?usp=sharing), move it to `vgg/` folder. We use this model to calculate training loss.<br>
@@ -71,12 +66,9 @@ If you use this code for your research, please cite our papers.
   year={2021}
 }
 ```
-
 ## Acknowledgments
 *This code borrows heavily from [CocosNet](https://github.com/microsoft/CoCosNet) and [DeepPruner](https://github.com/uber-research/DeepPruner).
 We also thank [SPADE](https://github.com/NVlabs/SPADE) and [RAFT](https://github.com/princeton-vl/RAFT).*
-
-
 ## License
 The codes and the pretrained model in this repository are under the MIT license as specified by the LICENSE file.<br>
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
