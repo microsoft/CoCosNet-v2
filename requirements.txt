@@ -1,0 +1,10 @@
+torch==1.7.0
+torchvision
+matplotlib
+pillow
+imageio
+numpy
+pandas
+scipy
+scikit-image
+opencv-python
