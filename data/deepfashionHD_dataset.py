@@ -62,10 +62,12 @@ class DeepFashionHDDataset(Pix2pixDataset):
         ref_dict = {}
         for i in range(len(ref)):
             items = ref[i].strip().split(',')
-            if items[0] in self_pair_dict.keys():
-                ref_dict[items[0]] = [it for it in self_pair_dict[items[0]]]
+            key = items[0]
+            if key in self_pair_dict.keys():
+                val = [it for it in self_pair_dict[items[0]]]
             else:
-                ref_dict[items[0]] = [items[-1]]
+                val = [items[-1]]
+            ref_dict[key.replace('\\',"/")] = [v.replace('\\',"/") for v in val]
         train_test_folder = ('', '')
         return ref_dict, train_test_folder
 
@@ -83,7 +85,7 @@ class DeepFashionHDDataset(Pix2pixDataset):
                 val = [it for it in items[1:]]
             else:
                 val = [items[-1]]
-            ref_dict[key] = val
+            ref_dict[key.replace('\\',"/")] = [v.replace('\\',"/") for v in val]
         train_test_folder = ('', '')
         return ref_dict, train_test_folder
 
