@@ -67,6 +67,17 @@ If you use this code for your research, please cite our papers.
   year={2021}
 }
 ```
+Besides, welcome to cite our CoCosNet v1:
+```
+@inproceedings{zhang2020cross,
+  title={Cross-domain Correspondence Learning for Exemplar-based Image Translation},
+  author={Zhang, Pan and Zhang, Bo and Chen, Dong and Yuan, Lu and Wen, Fang},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={5143--5153},
+  year={2020}
+}
+```
+
 ## Acknowledgments
 *This code borrows heavily from [CocosNet](https://github.com/microsoft/CoCosNet) and [DeepPruner](https://github.com/uber-research/DeepPruner).
 We also thank [SPADE](https://github.com/NVlabs/SPADE) and [RAFT](https://github.com/princeton-vl/RAFT).*
