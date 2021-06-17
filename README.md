@@ -67,7 +67,7 @@ If you use this code for your research, please cite our papers.
   year={2021}
 }
 ```
-Also, welcome to cite our [CoCosNet v1](https://github.com/microsoft/CoCosNet):
+Also, welcome to refer to our [CoCosNet v1](https://github.com/microsoft/CoCosNet):
 ```
 @inproceedings{zhang2020cross,
   title={Cross-domain Correspondence Learning for Exemplar-based Image Translation},
