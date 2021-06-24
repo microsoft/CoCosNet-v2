@@ -72,8 +72,7 @@ Also, welcome to refer to our [CoCosNet v1](https://github.com/microsoft/CoCosNe
 @inproceedings{zhang2020cross,
   title={Cross-domain Correspondence Learning for Exemplar-based Image Translation},
   author={Zhang, Pan and Zhang, Bo and Chen, Dong and Yuan, Lu and Wen, Fang},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={5143--5153},
+  booktitle={CVPR},
   year={2020}
 }
 ```
