@@ -60,20 +60,23 @@ We use 8 32GB Tesla V100 GPUs to train the network. You can set `batchSize` to 1
 ## Citation
 If you use this code for your research, please cite our papers.
 ```
-@inproceedings{zhou2021full,
-  title={CoCosNet v2: Full-Resolution Correspondence Learning for Image Translation},
-  author={Zhou, Xingran and Zhang, Bo and Zhang, Ting and Zhang, Pan and Bao, Jianmin and Chen, Dong and Zhang, Zhongfei and Wen, Fang},
-  booktitle={CVPR},
-  year={2021}
+@InProceedings{Zhou_2021_CVPR,
+author={Zhou, Xingran and Zhang, Bo and Zhang, Ting and Zhang, Pan and Bao, Jianmin and Chen, Dong and Zhang, Zhongfei and Wen, Fang},
+title={CoCosNet v2: Full-Resolution Correspondence Learning for Image Translation},
+booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+year={2021},
+pages={11465-11475}
 }
 ```
+
 Also, welcome to refer to our [CoCosNet v1](https://github.com/microsoft/CoCosNet):
 ```
-@inproceedings{zhang2020cross,
-  title={Cross-domain Correspondence Learning for Exemplar-based Image Translation},
-  author={Zhang, Pan and Zhang, Bo and Chen, Dong and Yuan, Lu and Wen, Fang},
-  booktitle={CVPR},
-  year={2020}
+@InProceedings{Zhang_2020_CVPR,
+author={Zhang, Pan and Zhang, Bo and Chen, Dong and Yuan, Lu and Wen, Fang},
+title={Cross-Domain Correspondence Learning for Exemplar-Based Image Translation},
+booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+year={2020},
+pages={5143-5153}
 }
 ```
 
