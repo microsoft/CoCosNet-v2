@@ -193,7 +193,7 @@ class NoVGGHPMCorrespondence(BaseNetwork):
                 dx = dx.view(1, search_window ** 2, 1, 1) * dilation
                 dy = dy.view(1, search_window ** 2, 1, 1) * dilation
                 offset_x_up = F.interpolate((2 * offset_x + dx), scale_factor=2)
-                offset_y_up = F.interpolate((2 * offset_y + dx), scale_factor=2)
+                offset_y_up = F.interpolate((2 * offset_y + dy), scale_factor=2)
             ref = ref.view(batch_size, 3, scale * scale)
             mat, y = self.patch_match(f1, f2, ref, offset_x_up, offset_y_up)
             y = y.view(batch_size, 3, scale, scale)
