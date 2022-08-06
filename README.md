@@ -7,6 +7,9 @@
 ### [Paper](https://arxiv.org/pdf/2012.02047.pdf)  | [Slides](https://github.com/xingranzh/xingranzh.github.io/blob/master/slides/cocosnet_v2_slides.pdf)<br>
 ## Abstract
 > We present the full-resolution correspondence learning for cross-domain images, which aids image translation. We adopt a hierarchical strategy that uses the correspondence from coarse level to guide the fine levels. At each hierarchy, the correspondence can be efficiently computed via PatchMatch that iteratively leverages the matchings from the neighborhood. Within each PatchMatch iteration, the ConvGRU module is employed to refine the current correspondence considering not only the matchings of larger context but also the historic estimates. The proposed CoCosNet v2, a GRU-assisted PatchMatch approach, is fully differentiable and highly efficient. When jointly trained with image translation, full-resolution semantic correspondence can be established in an unsupervised manner, which in turn facilitates the exemplar-based image translation. Experiments on diverse translation tasks show that CoCosNet v2 performs considerably better than state-of-the-art literature on producing high-resolution images.
+## News
+2022.8 We recently propose [PITI](https://github.com/PITI-Synthesis/PITI) which is a SOTA image-to-image translation method based on *prtrained diffusion model*.
+
 ## Installation
 First please install dependencies for the experiment:
 ```bash
