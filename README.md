@@ -9,7 +9,7 @@
 > We present the full-resolution correspondence learning for cross-domain images, which aids image translation. We adopt a hierarchical strategy that uses the correspondence from coarse level to guide the fine levels. At each hierarchy, the correspondence can be efficiently computed via PatchMatch that iteratively leverages the matchings from the neighborhood. Within each PatchMatch iteration, the ConvGRU module is employed to refine the current correspondence considering not only the matchings of larger context but also the historic estimates. The proposed CoCosNet v2, a GRU-assisted PatchMatch approach, is fully differentiable and highly efficient. When jointly trained with image translation, full-resolution semantic correspondence can be established in an unsupervised manner, which in turn facilitates the exemplar-based image translation. Experiments on diverse translation tasks show that CoCosNet v2 performs considerably better than state-of-the-art literature on producing high-resolution images.
 
 ## :sparkles: News
-2022.12 We propose [Paint by Example](https://github.com/Fantasy-Studio/Paint-by-Example) which allows in the wild image editing according to an examplar based on **stable diffusion**. One can have a try for our [online demo](https://huggingface.co/spaces/akhaliq/paint-by-example).
+2022.12 We propose [Paint by Example](https://github.com/Fantasy-Studio/Paint-by-Example) which allows in the wild image editing according to an examplar based on **stable diffusion**. One can have a try for our [online demo](https://huggingface.co/spaces/Fantasy-Studio/Paint-by-Example).
 
 2022.8 We recently propose [PITI](https://github.com/PITI-Synthesis/PITI) which is a SOTA image-to-image translation method based on *prtrained diffusion model*.
 
