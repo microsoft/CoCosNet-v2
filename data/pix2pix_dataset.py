@@ -56,10 +56,10 @@ class Pix2pixDataset(BaseDataset):
         # label Image
         label_path = self.label_paths[index]
         label_path = os.path.join(self.opt.dataroot, label_path)
-        label_tensor, params1 = self.get_label_tensor(label_path)
+        label_tensor, params1 = self.get_label_tensor(label_path.replace("\\","/"))
         # input image (real images)
         image_path = self.image_paths[index]
-        image_path = os.path.join(self.opt.dataroot, image_path)
+        image_path = os.path.join(self.opt.dataroot, image_path.replace("\\","/"))
         image = Image.open(image_path).convert('RGB')
         transform_image = get_transform(self.opt, params1)
         image_tensor = transform_image(image)

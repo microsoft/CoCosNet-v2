@@ -47,21 +47,21 @@ deepfashionHD
 
 ```
 ## Inference Using Pretrained Model
-The inference results are saved in the folder `checkpoints/deepfashionHD/test`. Download the pretrained model from [this link](https://drive.google.com/file/d/1ehkrKlf5s1gfpDNXO6AC9SIZMtqs5L3N/view?usp=sharing).<br> 
+The inference results are saved in the folder `checkpoints/deepfashionHD/test`. Download the pretrained model from [this link](https://drive.google.com/file/d/1ehkrKlf5s1gfpDNXO6AC9SIZMtqs5L3N/view?usp=sharing). The link provides the `model.zip` file. Unzip it and it would extract 3 files : `latest_net_Corr.pth`, `latest_net_D.pth`, and `latest_net_G.pth`. Unfortunately, the `latest_net_Corr.pth` has duplicate `latest_net_D.pth`, and `latest_net_G.pth` file inside it. It is necessary to open the `latest_net_Corr.pth` using some software like `7zip` and delete the `latest_net_D.pth`, and `latest_net_G.pth` located inside. This is in reference to [this comment](https://github.com/microsoft/CoCosNet-v2/issues/3).<br> 
 Move the models below the folder `checkpoints/deepfashionHD`. Then run the following command. 
 ````bash
-python test.py --name deepfashionHD --dataset_mode deepfashionHD --dataroot dataset/deepfashionHD --PONO --PONO_C --no_flip --batchSize 8 --gpu_ids 0 --netCorr NoVGGHPM --nThreads 16 --nef 32 --amp --display_winsize 512 --iteration_count 5 --load_size 512 --crop_size 512
+python test.py --name deepfashionHD --dataset_mode deepfashionHD --dataroot deepfashionHD --PONO --PONO_C --no_flip --batchSize 8 --gpu_ids 0 --netCorr NoVGGHPM --nThreads 16 --nef 32 --amp --display_winsize 512 --iteration_count 5 --load_size 512 --crop_size 512
 ````
-The inference results are saved in the folder `checkpoints/deepfashionHD/test`.<br>
+The inference results are saved in the folder `checkpoints/deepfashionHD/test`. In case you want to save each predicted image separately, please set the `--save_per_img` argument in the command line. Moreover also see the other test options given in the `options/test_options.py` file.<br> 
 ## Training from scratch
 Make sure you have prepared the DeepfashionHD dataset as the instruction.<br>
 Download the **pretrained VGG model** from [this link](https://drive.google.com/file/d/1D-z73DOt63BrPTgIxffN6Q4_L9qma9y8/view?usp=sharing), move it to `vgg/` folder. We use this model to calculate training loss.<br>
 
 Run the following command for training from scratch.
 ````bash
-python train.py --name deepfashionHD --dataset_mode deepfashionHD --dataroot dataset/deepfashionHD --niter 100 --niter_decay 0 --real_reference_probability 0.0 --hard_reference_probability 0.0 --which_perceptual 4_2 --weight_perceptual 0.001 --PONO --PONO_C --vgg_normal_correct --weight_fm_ratio 1.0 --no_flip --video_like --batchSize 16 --gpu_ids 0,1,2,3,4,5,6,7 --netCorr NoVGGHPM --match_kernel 1 --featEnc_kernel 3 --display_freq 500 --print_freq 50 --save_latest_freq 2500 --save_epoch_freq 5 --nThreads 16 --weight_warp_self 500.0 --lr 0.0001 --nef 32 --amp --weight_warp_cycle 1.0 --display_winsize 512 --iteration_count 5 --temperature 0.01 --continue_train --load_size 550 --crop_size 512 --which_epoch 15
+python train.py --name deepfashionHD --dataset_mode deepfashionHD --dataroot deepfashionHD --niter 100 --niter_decay 0 --real_reference_probability 0.0 --hard_reference_probability 0.0 --which_perceptual 4_2 --weight_perceptual 0.001 --PONO --PONO_C --vgg_normal_correct --weight_fm_ratio 1.0 --no_flip --video_like --batchSize 16 --gpu_ids 0,1,2,3,4,5,6,7 --netCorr NoVGGHPM --match_kernel 1 --featEnc_kernel 3 --display_freq 500 --print_freq 50 --save_latest_freq 2500 --save_epoch_freq 5 --nThreads 16 --weight_warp_self 500.0 --lr 0.0001 --nef 32 --amp --weight_warp_cycle 1.0 --display_winsize 512 --iteration_count 5 --temperature 0.01 --continue_train --load_size 550 --crop_size 512 --which_epoch 15
 ````
-Note that `--dataroot` parameter is your DeepFashionHD dataset root, e.g. `dataset/DeepFashionHD`.<br>
+Note that `--dataroot` parameter is your DeepFashionHD dataset root, e.g. `deepfashionHD`.<br>
 We use 8 32GB Tesla V100 GPUs to train the network. You can set `batchSize` to 16, 8 or 4 with fewer GPUs and change `gpu_ids`. 
 ## Citation
 If you use this code for your research, please cite our papers.
